@@ -1,0 +1,143 @@
+---
+import Base from "../layouts/Base.astro";
+import { notFound } from "../i18n";
+// Every variant ships in the HTML; a small script shows one at random, in the visitor's language.
+---
+
+<Base title="404 · nazarii.dev" description="This page doesn't exist." path="/404">
+  <header class="block">
+    <div class="wrap">
+      <div class="bar">
+        <a href="/" data-home>nazarii.dev</a>
+        <span>404</span>
+      </div>
+      <div class="lost">
+        {
+          notFound.map((v, i) => (
+            <section class="variant" data-i={i} hidden={i !== 0}>
+              <span class="emoji" aria-hidden="true">
+                {v.emoji}
+              </span>
+              <h1 lang="en" data-lang="en">{v.en.title}</h1>
+              <h1 lang="uk" data-lang="uk" hidden>
+                {v.uk.title}
+              </h1>
+              <p lang="en" data-lang="en">{v.en.body}</p>
+              <p lang="uk" data-lang="uk" hidden>
+                {v.uk.body}
+              </p>
+            </section>
+          ))
+        }
+        <div class="actions">
+          <a class="btn" href="/" data-home>
+            <span data-lang="en">Back to nazarii.dev</span>
+            <span data-lang="uk" hidden>Назад на nazarii.dev</span>
+          </a>
+          <button type="button" class="again" id="again">
+            <span data-lang="en">Another 404</span>
+            <span data-lang="uk" hidden>Ще один 404</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+</Base>
+
+<style>
+  .block {
+    min-height: 100%;
+  }
+  .block .wrap {
+    min-height: 100svh;
+    align-content: start;
+  }
+  .lost {
+    display: grid;
+    gap: 2rem;
+    max-width: 40rem;
+    padding-block: clamp(1rem, 6vw, 4rem);
+  }
+  .variant {
+    display: grid;
+    gap: 1rem;
+  }
+  .emoji {
+    font-size: clamp(3rem, 2rem + 4vw, 5rem);
+    line-height: 1;
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 1.4rem + 3.6vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .variant p {
+    margin: 0;
+    font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem);
+    line-height: 1.5;
+    opacity: 0.9;
+    max-width: 34rem;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    align-items: center;
+  }
+  .btn {
+    background: var(--block-ink);
+    color: var(--block);
+    text-decoration: none;
+    font-family: var(--f-display);
+    font-weight: 600;
+    padding: 0.7rem 1.1rem;
+    border-radius: 999px;
+  }
+  .btn:hover {
+    text-decoration: none;
+    filter: brightness(1.05);
+  }
+  .again {
+    background: none;
+    border: 1px solid color-mix(in srgb, var(--block-ink) 50%, transparent);
+    color: var(--block-ink);
+    font: 500 0.9375rem/1 var(--f-text);
+    padding: 0.65rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .again:hover {
+    border-color: var(--block-ink);
+  }
+  .btn:focus-visible,
+  .again:focus-visible {
+    outline-color: var(--block-ink);
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    // Ukrainian if they came from /uk/ or their browser prefers Ukrainian.
+    const uk = location.pathname.startsWith("/uk") || (navigator.language || "").toLowerCase().startsWith("uk");
+    const lang = uk ? "uk" : "en";
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-lang]").forEach((el) => (el.hidden = el.dataset.lang !== lang));
+    document.querySelectorAll("[data-home]").forEach((a) => (a.href = uk ? "/uk/" : "/"));
+
+    const variants = [...document.querySelectorAll(".variant")];
+    let current = -1;
+    const show = () => {
+      let next;
+      do next = Math.floor(Math.random() * variants.length);
+      while (next === current && variants.length > 1);
+      current = next;
+      variants.forEach((v, i) => (v.hidden = i !== current));
+    };
+    show();
+    document.getElementById("again").addEventListener("click", show);
+  })();
+</script>
