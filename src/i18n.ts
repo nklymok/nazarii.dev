@@ -16,7 +16,6 @@ export const copy = {
     switchText: "УКР",
     photoAlt: "Nazarii playing drums in a rehearsal studio",
     kyotoPhotoAlt: "A visitor walking through the torii gates at Fushimi Inari Shrine in Kyoto",
-    kyotoPhotoCaption: "Fushimi Inari, Kyoto",
     sections: [
       {
         emoji: "🛠️",
@@ -75,7 +74,6 @@ export const copy = {
     switchText: "EN",
     photoAlt: "Назарій грає на барабанах у репетиційній студії",
     kyotoPhotoAlt: "Відвідувач іде поміж воротами торії у святилищі Фушімі Інарі в Кіото",
-    kyotoPhotoCaption: "Фушімі Інарі, Кіото",
     sections: [
       {
         emoji: "🛠️",

@@ -44,16 +44,15 @@ const t = copy[lang];
           {photo && (
             <figure class="photo">
               <img
-                src={photo === "kyoto" ? "/images/kyoto-720.webp" : "/images/drums-700.webp"}
-                srcset={photo === "kyoto" ? "/images/kyoto-360.webp 360w, /images/kyoto-720.webp 720w" : "/images/drums-440.webp 440w, /images/drums-700.webp 700w"}
-                sizes={photo === "kyoto" ? "(max-width: 44rem) min(22rem, 100vw), 9rem" : "(max-width: 44rem) 90vw, 15rem"}
+                src={photo === "kyoto" ? "/images/kyoto.png" : "/images/drums-700.webp"}
+                srcset={photo === "kyoto" ? undefined : "/images/drums-440.webp 440w, /images/drums-700.webp 700w"}
+                sizes={photo === "kyoto" ? undefined : "(max-width: 44rem) 90vw, 15rem"}
                 width={photo === "kyoto" ? 720 : 700}
                 height={photo === "kyoto" ? 1280 : 875}
                 alt={photo === "kyoto" ? t.kyotoPhotoAlt : t.photoAlt}
                 loading="lazy"
                 decoding="async"
               />
-              {photo === "kyoto" && <figcaption>{t.kyotoPhotoCaption}</figcaption>}
             </figure>
           )}
         </div>
@@ -99,8 +98,7 @@ const t = copy[lang];
   .photo-left .photo {
     grid-column: 1;
     grid-row: 2;
-    margin-top: 0.8rem;
-    transform: rotate(-2deg);
+    margin-top: 0.35rem;
   }
   .tag {
     display: flex;
@@ -141,12 +139,6 @@ const t = copy[lang];
   .photo img {
     width: 100%;
     border-radius: 4px;
-  }
-  .photo figcaption {
-    margin-top: 0.4rem;
-    color: var(--muted);
-    font-size: 0.72rem;
-    line-height: 1.3;
   }
 
   .reach {
@@ -242,7 +234,7 @@ const t = copy[lang];
       grid-row: auto;
     }
     .para.photo-left .photo {
-      margin: 0.75rem 0 0 0.25rem;
+      margin: 0.35rem 0 0;
       width: min(65%, 15rem);
       max-width: 15rem;
     }
