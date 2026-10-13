@@ -52,4 +52,5 @@ It appears at `/blog/<slug>/` and in the list at `/blog/`. Images go in `public/
 - `src/pages/404.astro`: the random 404.
 - `public/fonts/`: Fixel by MacPaw and AlfaBravo, SIL Open Font License 1.1. Keep `OFL.txt` next to the font files.
 - `public/images/drums-*.webp`: the drum photo, cropped 4:5. The original is in `src/assets/`.
+- `public/images/kyoto-*.webp`: responsive versions of the Fushimi Inari photo in the left margin of "Beyond Lviv".
 - `public/og-en.png`, `public/og-uk.png`: share cards (1200×630). `favicon*.png`, `favicon.svg`, `apple-touch-icon.png`, `icon-512.png`: icons.

@@ -15,6 +15,8 @@ export const copy = {
     switchHref: "/uk/",
     switchText: "УКР",
     photoAlt: "Nazarii playing drums in a rehearsal studio",
+    kyotoPhotoAlt: "A visitor walking through the torii gates at Fushimi Inari Shrine in Kyoto",
+    kyotoPhotoCaption: "Fushimi Inari, Kyoto",
     sections: [
       {
         emoji: "🛠️",
@@ -28,7 +30,7 @@ export const copy = {
         emoji: "🥁",
         kind: "drum",
         tag: "Music",
-        photo: true,
+        photo: "drums",
         html: [
           `I play drums in a band called <a href="https://www.instagram.com/honey_jam.lviv/">Honey Jam</a>. We've played exactly one gig so far, on Make Music Day at Black Honey. I also play guitar and have written a couple of songs.`,
         ],
@@ -37,6 +39,7 @@ export const copy = {
         emoji: "🌏",
         kind: "globe",
         tag: "Beyond Lviv",
+        photo: "kyoto",
         html: [
           `I love Japan: the streets, the everyday life, the language. So I study Japanese with a tutor, and the JLPT N4 is in December. At 16 I spent a year in New Hampshire on the FLEX exchange program, and saw more than 25 states on road trips.`,
         ],
@@ -71,6 +74,8 @@ export const copy = {
     switchHref: "/",
     switchText: "EN",
     photoAlt: "Назарій грає на барабанах у репетиційній студії",
+    kyotoPhotoAlt: "Відвідувач іде поміж воротами торії у святилищі Фушімі Інарі в Кіото",
+    kyotoPhotoCaption: "Фушімі Інарі, Кіото",
     sections: [
       {
         emoji: "🛠️",
@@ -84,7 +89,7 @@ export const copy = {
         emoji: "🥁",
         kind: "drum",
         tag: "Музика",
-        photo: true,
+        photo: "drums",
         html: [
           `Граю на барабанах у гурті <a href="https://www.instagram.com/honey_jam.lviv/">Honey Jam</a>. Поки що ми зіграли рівно один концерт, на Дні музики в кавʼярні Black Honey. Ще граю на гітарі й написав пару пісень.`,
         ],
@@ -93,6 +98,7 @@ export const copy = {
         emoji: "🌏",
         kind: "globe",
         tag: "Поза Львовом",
+        photo: "kyoto",
         html: [
           `Люблю Японію: її вулиці, повсякдення, мову. Тож вивчаю японську з репетиторкою, а в грудні складаю JLPT N4. У 16 років я прожив рік у Нью-Гемпширі за програмою обміну FLEX і під час поїздок машиною побачив понад 25 штатів.`,
         ],
