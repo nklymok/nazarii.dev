@@ -34,10 +34,6 @@ import { notFound } from "../i18n";
             <span data-lang="en">Back to nazarii.dev</span>
             <span data-lang="uk" hidden>Назад на nazarii.dev</span>
           </a>
-          <button type="button" class="again" id="again">
-            <span data-lang="en">Another 404</span>
-            <span data-lang="uk" hidden>Ще один 404</span>
-          </button>
         </div>
       </div>
     </div>
@@ -101,43 +97,22 @@ import { notFound } from "../i18n";
     text-decoration: none;
     filter: brightness(1.05);
   }
-  .again {
-    background: none;
-    border: 1px solid color-mix(in srgb, var(--block-ink) 50%, transparent);
-    color: var(--block-ink);
-    font: 500 0.9375rem/1 var(--f-text);
-    padding: 0.65rem 1rem;
-    border-radius: 999px;
-    cursor: pointer;
-  }
-  .again:hover {
-    border-color: var(--block-ink);
-  }
-  .btn:focus-visible,
-  .again:focus-visible {
+  .btn:focus-visible {
     outline-color: var(--block-ink);
   }
 </style>
 
 <script is:inline>
   (() => {
-    // Ukrainian if they came from /uk/ or their browser prefers Ukrainian.
-    const uk = location.pathname.startsWith("/uk") || (navigator.language || "").toLowerCase().startsWith("uk");
-    const lang = uk ? "uk" : "en";
+    // Language comes from the visitor's stored choice (set in the <head> script), not the URL.
+    const lang = window.__lang === "uk" ? "uk" : "en";
     document.documentElement.lang = lang;
     document.querySelectorAll("[data-lang]").forEach((el) => (el.hidden = el.dataset.lang !== lang));
-    document.querySelectorAll("[data-home]").forEach((a) => (a.href = uk ? "/uk/" : "/"));
+    document.querySelectorAll("[data-home]").forEach((a) => (a.href = lang === "uk" ? "/uk/" : "/"));
 
+    // One random variant per visit.
     const variants = [...document.querySelectorAll(".variant")];
-    let current = -1;
-    const show = () => {
-      let next;
-      do next = Math.floor(Math.random() * variants.length);
-      while (next === current && variants.length > 1);
-      current = next;
-      variants.forEach((v, i) => (v.hidden = i !== current));
-    };
-    show();
-    document.getElementById("again").addEventListener("click", show);
+    const pick = Math.floor(Math.random() * variants.length);
+    variants.forEach((v, i) => (v.hidden = i !== pick));
   })();
 </script>

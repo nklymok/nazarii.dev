@@ -9,14 +9,14 @@ const { lang } = Astro.props;
 const t = copy[lang];
 ---
 
-<Base title={t.title} description={t.description} lang={lang} path={lang === "uk" ? "/uk/" : "/"}>
+<Base title={t.title} description={t.description} lang={lang} path={lang === "uk" ? "/uk/" : "/"} home={lang}>
   <header class="block">
     <div class="wrap">
       <div class="bar">
         <a href={lang === "uk" ? "/uk/" : "/"}>nazarii.dev</a>
         <div class="right">
           <span>{t.city}, <span id="clock" data-tz="Europe/Kyiv">--:--</span></span>
-          <a href={t.switchHref} hreflang={lang === "uk" ? "en" : "uk"} aria-label={t.switchLabel}>{t.switchText}</a>
+          <a href={t.switchHref} hreflang={lang === "uk" ? "en" : "uk"} aria-label={t.switchLabel} data-set-lang={lang === "uk" ? "en" : "uk"}>{t.switchText}</a>
         </div>
       </div>
       <h1 id="name" aria-label={t.name}>
@@ -299,6 +299,13 @@ const t = copy[lang];
       (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(play, 150));
       document.getElementById("name").addEventListener("mouseenter", play);
     }
+
+    // Language switch: remember the choice before leaving the page.
+    document.querySelectorAll("[data-set-lang]").forEach((link) =>
+      link.addEventListener("click", () => {
+        try { localStorage.setItem("nazarii.lang", link.dataset.setLang); } catch (e) {}
+      })
+    );
 
     // Emoji: pointing at a paragraph, or tapping it, plays its emoji once.
     document.querySelectorAll(".para, .reach").forEach((row) => {

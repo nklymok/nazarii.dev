@@ -4,8 +4,9 @@ interface Props {
   description: string;
   lang?: "en" | "uk";
   path?: string;
+  home?: "en" | "uk";
 }
-const { title, description, lang = "en", path = "/" } = Astro.props;
+const { title, description, lang = "en", path = "/", home } = Astro.props;
 const site = "https://nazarii.dev";
 const og = `${site}/${lang === "uk" ? "og-uk.png" : "og-en.png"}`;
 ---
@@ -36,6 +37,17 @@ const og = `${site}/${lang === "uk" ? "og-uk.png" : "og-en.png"}`;
     <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#3a4bd0" />
+    <script is:inline define:vars={{ home }}>
+      // The visitor's language choice lives in localStorage, so it follows them to 404s and posts.
+      // On a homepage, a stored choice (or, the first time, a Ukrainian browser) picks the version.
+      (() => {
+        let pref = null;
+        try { pref = localStorage.getItem("nazarii.lang"); } catch (e) {}
+        if (!pref && (navigator.language || "").toLowerCase().startsWith("uk")) pref = "uk";
+        window.__lang = pref || home || "en";
+        if (home && pref && pref !== home) location.replace(pref === "uk" ? "/uk/" : "/");
+      })();
+    </script>
 
     <link rel="preload" href="/fonts/FixelDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/FixelText-Regular.woff2" as="font" type="font/woff2" crossorigin />

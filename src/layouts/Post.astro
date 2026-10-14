@@ -9,7 +9,7 @@ const lang = frontmatter.lang === "uk" ? "uk" : "en";
   <header class="block slim">
     <div class="wrap">
       <div class="bar">
-        <a href={lang === "uk" ? "/uk/" : "/"}>nazarii.dev</a>
+        <a href="/" data-home>nazarii.dev</a>
         <a href="/blog/">{lang === "uk" ? "Тексти" : "Writing"}</a>
       </div>
     </div>
@@ -27,9 +27,12 @@ const lang = frontmatter.lang === "uk" ? "uk" : "en";
       <slot />
     </div>
     <footer class="post-foot">
-      <a href={lang === "uk" ? "/uk/" : "/"}>← nazarii.dev</a>
+      <a href="/" data-home>← nazarii.dev</a>
     </footer>
   </article>
+  <script is:inline>
+    document.querySelectorAll("[data-home]").forEach((a) => (a.href = window.__lang === "uk" ? "/uk/" : "/"));
+  </script>
 </Base>
 
 <style>

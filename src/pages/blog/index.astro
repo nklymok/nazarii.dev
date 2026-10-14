@@ -9,7 +9,7 @@ posts.sort((a, b) => +new Date(b.frontmatter.date) - +new Date(a.frontmatter.dat
   <header class="block slim">
     <div class="wrap">
       <div class="bar">
-        <a href="/">nazarii.dev</a>
+        <a href="/" data-home>nazarii.dev</a>
         <span>Writing · Тексти</span>
       </div>
     </div>
@@ -28,6 +28,9 @@ posts.sort((a, b) => +new Date(b.frontmatter.date) - +new Date(a.frontmatter.dat
       }
     </ol>
   </main>
+  <script is:inline>
+    document.querySelectorAll("[data-home]").forEach((a) => (a.href = window.__lang === "uk" ? "/uk/" : "/"));
+  </script>
 </Base>
 
 <style>
