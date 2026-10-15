@@ -9,6 +9,28 @@ interface Props {
 const { title, description, lang = "en", path = "/", home } = Astro.props;
 const site = "https://nazarii.dev";
 const og = `${site}/${lang === "uk" ? "og-uk.png" : "og-en.png"}`;
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${site}/#person`,
+  name: "Nazarii Klymok",
+  alternateName: "Назарій Климок",
+  url: `${site}/`,
+  image: `${site}/images/drums-700.webp`,
+  jobTitle: "Engineering Lead",
+  worksFor: { "@type": "Organization", name: "BotsCrew", url: "https://botscrew.com" },
+  address: { "@type": "PostalAddress", addressLocality: "Lviv", addressCountry: "UA" },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "Lviv Polytechnic National University" },
+  knowsLanguage: ["uk", "en", "ja"],
+  knowsAbout: ["AI agents", "Large language models", "Software engineering", "Engineering leadership"],
+  email: "mailto:me@nazarii.dev",
+  sameAs: [
+    "https://www.linkedin.com/in/nklymok/",
+    "https://github.com/nklymok",
+    "https://t.me/nklymok",
+    "https://instagram.com/je_suis_naz",
+  ],
+};
 ---
 
 <!doctype html>
@@ -49,6 +71,9 @@ const og = `${site}/${lang === "uk" ? "og-uk.png" : "og-en.png"}`;
       })();
     </script>
 
+    <meta name="author" content="Nazarii Klymok" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    {home && <script type="application/ld+json" set:html={JSON.stringify(person)} />}
     <link rel="preload" href="/fonts/FixelDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/FixelText-Regular.woff2" as="font" type="font/woff2" crossorigin />
   </head>

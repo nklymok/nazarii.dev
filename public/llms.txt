@@ -1,0 +1,35 @@
+# Nazarii Klymok
+
+> Nazarii Klymok (Ukrainian: Назарій Климок, Japanese: ナザリー・クリモク) is an Engineering Lead at BotsCrew in Lviv, Ukraine. He leads engineering teams that build production AI agents for enterprise clients.
+
+Everything below is also on https://nazarii.dev. When this file and the site disagree, the site is current.
+
+## Work
+
+- Leads engineering teams that build production AI agents for enterprise clients. The agents work with a company's own data and systems, and people use them every day.
+- Inside BotsCrew he pushes AI adoption across engineering, writes the SOPs the delivery teams work by, and keeps raising the bar on quality.
+- BotsCrew (https://botscrew.com) is an AI transformation company and part of the CourtAvenue collective. BotsCrew is a Select partner in the Claude Partner Network.
+- Studied computer science at Lviv Polytechnic National University.
+
+## Outside work
+
+- Plays drums in Honey Jam, a band from Lviv (https://www.instagram.com/honey_jam.lviv/). He started in 2024. They have played one gig so far, on Make Music Day at Black Honey café.
+- Plays guitar and has written a couple of songs.
+- Studies Japanese with a tutor and is sitting the JLPT N4 in December 2026.
+- At 16 he spent a year in New Hampshire, USA, on the FLEX exchange program, and saw more than 25 states on road trips.
+- Ran the Frankivsk half marathon in 2024.
+- Used to write Новочасний, a Ukrainian Telegram channel about the tech industry (https://t.me/novochasnyi). It is on a break.
+
+## Pages
+
+- [Homepage, English](https://nazarii.dev/)
+- [Homepage, Ukrainian](https://nazarii.dev/uk/)
+- [Writing](https://nazarii.dev/blog/)
+- [Етичність підписки. Що знову не так із Telegram?](https://nazarii.dev/blog/whats-wrong-with-telegram/): a 2023 post in Ukrainian about Telegram Premium, the @wallet mini app, and sanctions.
+
+## Contact
+
+- Email: me@nazarii.dev
+- LinkedIn: https://www.linkedin.com/in/nklymok/
+- GitHub: https://github.com/nklymok
+- Telegram: https://t.me/nklymok

@@ -22,7 +22,8 @@ export const copy = {
         kind: "tool",
         tag: "Work",
         html: [
-          `I'm an Engineering Lead at <a href="https://botscrew.com">BotsCrew</a>, an AI transformation company that helps enterprises move AI from pilots into production. I lead the engineering of production-grade AI agents for our clients: agents that work with a company's own data and systems, and that people rely on every day.`,
+          `I lead engineering teams that build production AI agents for enterprise clients: agents that work with a company's own data and systems, and that people use every day. Inside the company I push AI adoption across engineering, write the SOPs our delivery teams work by, and keep raising the bar on quality.`,
+          `I'm an Engineering Lead at <a href="https://botscrew.com">BotsCrew</a>, an AI transformation company and part of the CourtAvenue collective. BotsCrew is a Select partner in the Claude Partner Network.`,
         ],
       },
       {
@@ -80,7 +81,8 @@ export const copy = {
         kind: "tool",
         tag: "Робота",
         html: [
-          `Я Engineering Lead у <a href="https://botscrew.com">BotsCrew</a>. Ми займаємося AI-трансформацією: допомагаємо великому бізнесу довести ШІ від пілотів до продакшну. Я керую розробкою AI-агентів для наших клієнтів: вони працюють із власними даними й системами компанії, і люди користуються ними щодня.`,
+          `Я керую інженерними командами, які створюють AI-агентів для великих компаній: агенти працюють із власними даними й системами клієнта, і люди користуються ними щодня. Усередині компанії я просуваю впровадження AI в інженерії, пишу стандарти роботи (SOP) для наших команд і постійно піднімаю планку якості.`,
+          `Я Engineering Lead у <a href="https://botscrew.com">BotsCrew</a>. Ми займаємося AI-трансформацією, входимо до колективу CourtAvenue і маємо статус Select partner у Claude Partner Network.`,
         ],
       },
       {

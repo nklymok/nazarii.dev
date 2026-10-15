@@ -15,7 +15,7 @@ const t = copy[lang];
       <div class="bar">
         <a href={lang === "uk" ? "/uk/" : "/"}>nazarii.dev</a>
         <div class="right">
-          <span>{t.city}, <span id="clock" data-tz="Europe/Kyiv">--:--</span></span>
+          <span>{t.city}, <span id="clock" data-tz="Europe/Kyiv">--:--</span><span id="weather" hidden></span></span>
           <a href={t.switchHref} hreflang={lang === "uk" ? "en" : "uk"} aria-label={t.switchLabel} data-set-lang={lang === "uk" ? "en" : "uk"}>{t.switchText}</a>
         </div>
       </div>
@@ -299,6 +299,43 @@ const t = copy[lang];
       (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(play, 150));
       document.getElementById("name").addEventListener("mouseenter", play);
     }
+
+    // Weather in Lviv from Open-Meteo (free, no key). Hidden if the request fails.
+    const weather = document.getElementById("weather");
+    const icon = (code, day) => {
+      if (code === 0) return day ? "☀️" : "🌙";
+      if (code <= 2) return day ? "🌤️" : "☁️";
+      if (code === 3) return "☁️";
+      if (code <= 48) return "🌫️";
+      if (code <= 57) return "🌦️";
+      if (code <= 67 || (code >= 80 && code <= 82)) return "🌧️";
+      if (code <= 77 || code === 85 || code === 86) return "❄️";
+      return "⛈️";
+    };
+    const loadWeather = () =>
+      fetch("https://api.open-meteo.com/v1/forecast?latitude=49.84&longitude=24.03&current=temperature_2m,weather_code,is_day&timezone=Europe%2FKyiv")
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then(({ current: c }) => {
+          const temp = Math.round(c.temperature_2m);
+          weather.textContent = ` · ${temp < 0 ? "−" + Math.abs(temp) : temp}°C ${icon(c.weather_code, c.is_day)}`;
+          weather.hidden = false;
+        })
+        .catch(() => (weather.hidden = true));
+    if (weather) {
+      loadWeather();
+      setInterval(loadWeather, 15 * 60 * 1000);
+    }
+
+    // A hello for whoever opens DevTools.
+    const uk = document.documentElement.lang === "uk";
+    console.log(
+      "%c" + (uk ? "Назарій Климок" : "Nazarii Klymok") + "%c\n\n" +
+        (uk
+          ? "Привіт 👋 Ви відкрили консоль, тож ви, мабуть, свій.\nСайт зроблений на Astro і живе на GitHub Pages: https://github.com/nklymok/nazarii.dev\nНапишіть мені: me@nazarii.dev"
+          : "Hi 👋 You opened the console, so you're probably one of us.\nThis site is plain Astro on GitHub Pages: https://github.com/nklymok/nazarii.dev\nSay hi: me@nazarii.dev"),
+      "font: 700 22px system-ui, sans-serif; color: #fff3c4; background: #3a4bd0; padding: 6px 12px; border-radius: 6px;",
+      "font: 13px system-ui, sans-serif;"
+    );
 
     // Language switch: remember the choice before leaving the page.
     document.querySelectorAll("[data-set-lang]").forEach((link) =>
