@@ -49,7 +49,7 @@ export const copy = {
         kind: "coffee",
         tag: "Lately",
         html: [
-          `Lately I've been playing S.T.A.L.K.E.R. 2 and listening to The Unsleeping's <span lang="uk">«Справжній бедрум панк»</span>. Both Ukrainian, both great. Otherwise: walks around Lviv, cycling, and a lot of coffee. In 2024 I ran the Frankivsk half marathon and finished somewhere in the middle.`,
+          `Lately I've been playing S.T.A.L.K.E.R. 2 and listening to The Unsleeping's <span lang="uk">«Справжній бедрум панк»</span>. Both Ukrainian, both great. Otherwise: walks around Lviv, cycling, and a lot of coffee. In 2024 I ran the Frankivsk half marathon, all 21.1 km, and finished mid-pack: not first, not last.`,
         ],
       },
       {
@@ -108,7 +108,7 @@ export const copy = {
         kind: "coffee",
         tag: "Останнім часом",
         html: [
-          `Останнім часом граю в S.T.A.L.K.E.R. 2 і слухаю «Справжній бедрум панк» гурту The Unsleeping. Усе українське й усе класне. А ще люблю прогулянки Львовом, велосипед і багато кави. У 2024 році пробіг напівмарафон у Франківську й фінішував десь посередині.`,
+          `Останнім часом граю в S.T.A.L.K.E.R. 2 і слухаю «Справжній бедрум панк» гурту The Unsleeping. Усе українське й усе класне. А ще люблю прогулянки Львовом, велосипед і багато кави. У 2024 році пробіг напівмарафон у Франківську, усі 21,1 км, і фінішував у середині таблиці: не першим і не останнім.`,
         ],
       },
       {
@@ -155,8 +155,8 @@ export const notFound = [
   },
   {
     emoji: "🏃",
-    en: { title: "Dropped out at kilometre 14", body: "This page didn't make it to the finish line. Somewhere in the middle, like me, would have been fine." },
-    uk: { title: "Зійшла з дистанції на 14-му кілометрі", body: "Ця сторінка не добігла до фінішу. Могла б, як я, фінішувати десь посередині." },
+    en: { title: "Did not finish", body: "This page dropped out of the race. I ran all 21.1 km of the Frankivsk half marathon, so it has no excuse." },
+    uk: { title: "Зійшла з дистанції", body: "Ця сторінка не добігла до фінішу. Я пробіг усі 21,1 км Франківського напівмарафону, тож виправдань у неї немає." },
   },
   {
     emoji: "☕",
