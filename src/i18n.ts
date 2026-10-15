@@ -7,8 +7,8 @@ export const POST_URL = "/blog/whats-wrong-with-telegram/";
 export const copy = {
   en: {
     htmlLang: "en",
-    title: "Nazarii Klymok",
-    description: "Engineering Lead at BotsCrew in Lviv. AI agents, drums, Japanese.",
+    title: "Nazarii Klymok · Engineering Lead at BotsCrew",
+    description: "Nazarii Klymok is an Engineering Lead at BotsCrew in Lviv, Ukraine. He leads teams that build production AI agents for enterprise clients. Also: drums, Japanese, a lot of coffee.",
     name: "Nazarii Klymok",
     city: "Lviv",
     switchLabel: "Українською",
@@ -66,8 +66,8 @@ export const copy = {
 
   uk: {
     htmlLang: "uk",
-    title: "Назарій Климок",
-    description: "Engineering Lead у BotsCrew, Львів. AI-агенти, барабани, японська.",
+    title: "Назарій Климок · Engineering Lead у BotsCrew",
+    description: "Назарій Климок, Engineering Lead у BotsCrew, Львів. Керує командами, які створюють AI-агентів для великих компаній. А ще барабани, японська і багато кави.",
     name: "Назарій Климок",
     city: "Львів",
     switchLabel: "In English",
