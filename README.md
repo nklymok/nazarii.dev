@@ -23,6 +23,10 @@ After the domain is restored, also redo these at Porkbun:
 - Email forwarding `me@nazarii.dev` → your Gmail (free at Porkbun).
 - The MailerSend records for `mail.nazarii.dev`, if you still use it.
 
+## Solovéy privacy policy
+
+`public/solovey/privacy/index.html` is the privacy policy of the Solovéy app, served at `https://nazarii.dev/solovey/privacy/`. App Store Connect links to that address, so the path must not change. The page is a copy of `docs/privacy/index.html` in the `solovey-app` repo: edit it there and copy it over.
+
 ## Editing the text
 
 All homepage copy lives in `src/i18n.ts`, English and Ukrainian side by side. Each section is one paragraph of HTML, so links stay inline. The six 404 variants are at the bottom of the same file. One is picked at random per visit, in the visitor's language.
